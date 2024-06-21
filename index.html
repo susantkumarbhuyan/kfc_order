@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="text"], .form-group input[type="tel"], .form-group input[type="number"] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .note {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Kumar Fashion Club</div>
+        <h2>Order Form</h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+            <div class="form-group">
+                <label for="pin">Pin:</label>
+                <input type="number" id="pin" name="pin" required>
+            </div>
+            <div class="form-group">
+                <label for="mob_no">Mob no:</label>
+                <input type="tel" id="mob_no" name="mob_no" required>
+            </div>
+            <div class="form-group">
+                <label for="alt_no">Alt no:</label>
+                <input type="tel" id="alt_no" name="alt_no">
+            </div>
+            <div class="form-group">
+                <label for="size">Size:</label>
+                <input type="text" id="size" name="size" required>
+            </div>
+            <div class="form-group">
+                <label for="land_mark">Land Mark:</label>
+                <input type="text" id="land_mark" name="land_mark">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Send to WhatsApp">
+            </div>
+            <div class="note">
+                *Note*: Unboxing video of parcel (from the very beginning) is mandatory for exchange of wrong or defective product received.
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var address = document.getElementById('address').value;
+            var city = document.getElementById('city').value;
+            var state = document.getElementById('state').value;
+            var pin = document.getElementById('pin').value;
+            var mob_no = document.getElementById('mob_no').value;
+            var alt_no = document.getElementById('alt_no').value;
+            var size = document.getElementById('size').value;
+            var land_mark = document.getElementById('land_mark').value;
+
+            var message = `Name: ${name}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nPin: ${pin}\nMob no: ${mob_no}\nAlt no: ${alt_no}\nSize: ${size}\nLand Mark: ${land_mark}`;
+
+            var whatsappURL = `https://wa.me/7847942869?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
